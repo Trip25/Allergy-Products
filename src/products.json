@@ -4,7 +4,7 @@
         "name": "Quinoa Salad",
         "description": "Fresh quinoa salad with assorted veggies",
         "price": "9.99",
-        "diet": ["Vegetrian", "Vegan", "Gluten-Free", "Dairy-Free", "Nut-Free", "Soy-Free"],
+        "diet": ["Vegetarian", "Vegan", "Gluten-Free", "Dairy-Free", "Nut-Free", "Soy-Free"],
         "image": "https://assets.iceland.co.uk/i/iceland/iceland_4_zesty_bean_quinoa_steam_bags_500g_83674.jpg" 
     },
     {
