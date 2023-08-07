@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import "../../products.json";
 
 /*Plan
 Filter for allergy 
@@ -15,7 +16,13 @@ product.diet (show all that is checked)
 */
 
 export default function FilterMenu() {
-    const []
+    const allergies = ["Vegetarian", "Vegan", "Gluten-Free", "Dairy-Free", "Nut-Free", "Soy-Free"];
+    const [selectedAllergies, setSelectedAllergies] = useState([]);
+    const [checked, setChecked] = useState(false);
+
+    function handleChecked(e) {
+        setChecked(e.target.value)
+    }
     
         return (
             <div>
