@@ -1,20 +1,6 @@
 import React, { useState } from 'react'
 import { Form } from 'react-bootstrap';
-import {useProductContext} from '../../context/productContext.js';
-
-/*Plan
-Filter for allergy 
-so it will go through "diet" in products.json
-use checkbox to select 
-if checked, we want to show products that satisfy that diet
-set an allergy array
-
-display in div
-product.name
-product.description
-product.price
-product.diet (show all that is checked)
-*/
+import {useProductContext} from '../../context/productContext'
 
 export default function FilterMenu({ allergies }) {
   // const [selectedAllergies, setSelectedAllergies] = useState([])

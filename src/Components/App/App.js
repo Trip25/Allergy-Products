@@ -1,11 +1,13 @@
+import { useEffect, useState } from 'react'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import productData from '../../products.json'
 
+import { ProductProvider } from '../../context/productContext'
+
 import { Container, Navbar } from 'react-bootstrap'
 import ProductList from '../ProductList/ProductList.js'
 import FilterMenu from '../FilterMenu/FilterMenu.js'
-import { useEffect, useState } from 'react'
 
 const LogoNavigation = () => {
   return (
@@ -25,18 +27,16 @@ function App() {
 
   const [productList, setProductList] = useState([])
 
-
-  useEffect(() => {
-  }, [])
-
   return (
-    <div className="App">
-      <Container>
-        <LogoNavigation />
-        <FilterMenu allergies={uniqueAllergies} />
-        <ProductList products={productData} />
-      </Container>
-    </div>
+    <ProductProvider>
+      <div className="App">
+        <Container>
+          <LogoNavigation />
+          <FilterMenu allergies={uniqueAllergies} />
+          <ProductList products={productData} />
+        </Container>
+      </div>
+    </ProductProvider>
   )
 }
 

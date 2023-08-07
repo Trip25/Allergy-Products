@@ -1,9 +1,14 @@
 import { Badge, Card, Container, Row, Col } from 'react-bootstrap'
 import { useEffect } from 'react'
+import { useProductContext } from '../../context/productContext'
 
-const ProductCard = ({ image, name, desc, price, diet }) => {
+
+const ProductCard = ({ image, name, desc, price, diet, allergies }) => {
+
+  const result = allergies.some(item => diet.includes(item));
+
   return (
-    <Card style={{ width: '18rem' }}>
+    result && <Card style={{ width: '18rem' }}>
       <Card.Body>
         <Card.Img
           variant="top"
@@ -22,27 +27,22 @@ const ProductCard = ({ image, name, desc, price, diet }) => {
 }
 
 export default function ProductList({ products }) {
+
+  const {allergiesArray, addAllergies, removeAllergies} = useProductContext()
+
   return (
     <Container fluid>
       <Row>
         {products.map(({ image, name, description, price, diet }, index) => (
-          <Col
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-            key={index}
-            md={3}
-          >
             <ProductCard
+              key={index}
               image={image}
               name={name}
               desc={description}
               price={price}
               diet={diet}
+              allergies={allergiesArray}
             />
-          </Col>
         ))}
       </Row>
     </Container>
