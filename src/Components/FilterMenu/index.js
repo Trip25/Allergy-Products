@@ -17,7 +17,7 @@ product.diet (show all that is checked)
 
 export default function FilterMenu({allergies}) {
     const [selectedAllergies, setSelectedAllergies] = useState([]);
-    const [checked, setChecked] = useState(false);
+    const [checked, setChecked] = useState([]);
 
     function handleChecked(e) {
         setChecked(e.target.value)
