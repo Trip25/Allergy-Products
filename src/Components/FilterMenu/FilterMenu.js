@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Form } from 'react-bootstrap'
+import { Form } from 'react-bootstrap';
+import {useProductContext} from '../../context/productContext.js';
 
 /*Plan
 Filter for allergy 
@@ -16,23 +17,24 @@ product.diet (show all that is checked)
 */
 
 export default function FilterMenu({ allergies }) {
-  const [selectedAllergies, setSelectedAllergies] = useState([])
+  // const [selectedAllergies, setSelectedAllergies] = useState([])
+  const {allergiesArray, addAllergies, removeAllergies} = useProductContext()
 
   function handleChecked(e) {
     let allergyItem = e.target.innerText
 
-    if (!selectedAllergies.includes(allergyItem)) {
+    if (!allergiesArray.includes(allergyItem)) {
       //checks if allergy is already in list, if it isn't, it will update the selectedAllergies
 
-      setSelectedAllergies([...selectedAllergies, allergyItem]) //the dietary is added to selectedAllergies array
+      addAllergies(allergyItem) //the dietary is added to selectedAllergies array
+      console.log(allergiesArray)
     } else {
       //remove allergy from list if it has already been selected previously
 
-      setSelectedAllergies(
-        selectedAllergies.filter((item) => item !== allergyItem)
-      )
+      removeAllergies(allergyItem)
+      console.log(allergiesArray)
     }
-    console.log(selectedAllergies)
+    console.log(allergiesArray)
   }
 
   return (

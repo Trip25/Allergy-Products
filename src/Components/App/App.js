@@ -3,8 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import productData from '../../products.json'
 
 import { Container, Navbar } from 'react-bootstrap'
-import ProductList from '../ProductList'
-import FilterMenu from '../FilterMenu'
+import ProductList from '../ProductList/ProductList.js'
+import FilterMenu from '../FilterMenu/FilterMenu.js'
 import { useEffect, useState } from 'react'
 
 const LogoNavigation = () => {
