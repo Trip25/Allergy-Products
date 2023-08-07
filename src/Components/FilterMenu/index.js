@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import "../../products.json";
+import Form from 'react-bootstrap/Form';
 
 /*Plan
 Filter for allergy 
@@ -26,7 +27,54 @@ export default function FilterMenu() {
     
         return (
             <div>
-                <h1>Filter Menu</h1>
+                <Form>
+      {['checkbox'].map((type) => (
+        <div key={`inline-${type}`} className="mb-3">
+          <Form.Check
+            inline
+            label="1"
+            name="group1"
+            type={type}
+            id={`inline-${type}-1`}
+          />
+          <Form.Check
+            inline
+            label="2"
+            name="group1"
+            type={type}
+            id={`inline-${type}-2`}
+          />
+          <Form.Check
+            inline
+            label="3"
+            name="group1"
+            type={type}
+            id={`inline-${type}-3`}
+          />
+           <Form.Check
+            inline
+            label="4"
+            name="group1"
+            type={type}
+            id={`inline-${type}-4`}
+          />
+           <Form.Check
+            inline
+            label="5"
+            name="group1"
+            type={type}
+            id={`inline-${type}-5`}
+          />
+           <Form.Check
+            inline
+            label="6"
+            name="group1"
+            type={type}
+            id={`inline-${type}-6`}
+          />
+        </div>
+      ))}
+    </Form>
             </div>
         )
     }
