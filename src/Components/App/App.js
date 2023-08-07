@@ -1,8 +1,8 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import productData from '../../products.json'
 
-import { Container, Navbar, Nav } from 'react-bootstrap';
-
+import { Container, Navbar } from 'react-bootstrap';
 import ProductList from '../ProductList'
 import FilterMenu from '../FilterMenu';
 
@@ -17,11 +17,19 @@ const LogoNavigation = () => {
 };
 
 function App() {
+
+  let allAllergies = []
+  productData.map(({diet}) => allAllergies.push(...diet))
+
+  const uniqueAllergies = [...new Set(allAllergies)];
+
   return (
     <div className="App">
-      <LogoNavigation/ >
-      <FilterMenu/>
-      <ProductList />
+      <Container>
+        <LogoNavigation/>
+        <FilterMenu allergies={uniqueAllergies}/>
+        <ProductList products={productData} />
+      </Container>
     </div>
   )
 }

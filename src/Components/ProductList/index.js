@@ -1,8 +1,4 @@
-import { Badge, Card } from 'react-bootstrap';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Products from '../../products.json';
+import { Badge, Card, Container, Row, Col } from 'react-bootstrap';
 
 const ProductCard = ({ image, name, desc, price, diet }) => {
   return (
@@ -18,11 +14,11 @@ const ProductCard = ({ image, name, desc, price, diet }) => {
   );
 };
 
-export default function ProductList() {
+export default function ProductList({products}) {
   return (
     <Container fluid>
       <Row>
-        {Products.map(({ image, name, description, price, diet }, index) => (
+        {products.map(({ image, name, description, price, diet }, index) => (
           <Col style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}} key={index} md={3}>
             <ProductCard image={image} name={name} desc={description} price={price} diet={diet} />
           </Col>
