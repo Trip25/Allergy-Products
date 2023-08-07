@@ -4,7 +4,7 @@
         "name": "Quinoa Salad",
         "description": "Fresh quinoa salad with assorted veggies",
         "price": "9.99",
-        "diet": ["Vegetarian", "Vegan", "Gluten-Free", "Dairy-Free", "Nut-Free", "Soy-Free"]
+        "diet": ["Vegetrian", "Vegan", "Gluten-Free", "Dairy-Free", "Nut-Free", "Soy-Free"]
     },
     {
         "id": "2",

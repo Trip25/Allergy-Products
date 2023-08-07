@@ -1,15 +1,28 @@
 import { useState } from 'react';
 import Products from '../../products.json';
-import Card from 'react-bootstrap/Card';
+import { Badge, Card } from 'react-bootstrap';
+
+const ProductCard = ({name, desc, price, diet})=> {
+  return (
+      <Card style={{ width: '18rem' }}>
+          <Card.Body>
+            <Card.Title>{name}</Card.Title>
+            <Card.Text>{desc}</Card.Text>
+            <Card.Text>{price}</Card.Text>
+            {diet.map((title, index) => <Badge key={index}>{title}</Badge>)}
+          </Card.Body>
+        </Card>
+  )
+}
 
 export default function ProductList() {
 
         return (
             <ul>
-                {Products.map((product, index) => {
+                {Products.map(({name, description, price, diet}, index) => {
                     return (
                         <li key={index}>
-                            <ProductCard />
+                            <ProductCard name={name} desc={description} price={price} diet={diet} />
                         </li>
                     )
                 })}
@@ -17,20 +30,5 @@ export default function ProductList() {
 
         );
       }
-      
-
-
-      function ProductCard() {
-        return (
-            <Card style={{ width: '18rem' }}>
-                <Card.Body>
-                  <Card.Title>Card Title</Card.Title>
-                  <Card.Text>
-                    Some quick example text to build on the card title and make up the
-                    bulk of the card's content.
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-        )
-    }
+    
     
