@@ -12,7 +12,7 @@ const ProductCard = ({ image, name, desc, price, diet }) => {
         />
         <Card.Title>{name}</Card.Title>
         <Card.Text>{desc}</Card.Text>
-        <Card.Text>{price}</Card.Text>
+        <Card.Text>£{price}</Card.Text>
         {diet.map((title, index) => (
           <Badge key={index}>{title}</Badge>
         ))}
