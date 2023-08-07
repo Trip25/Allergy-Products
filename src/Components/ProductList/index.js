@@ -1,25 +1,36 @@
 import { useState } from 'react';
-import Products from '../Products/products.json'
+import Products from '../../products.json';
+import Card from 'react-bootstrap/Card';
 
 export default function ProductList() {
 
-    return (
-        <div>
-            <h1>Product List</h1>
+        return (
             <ul>
                 {Products.map((product, index) => {
                     return (
                         <li key={index}>
-                            <h2>{product.name}</h2>
-                            <p>{product.description}</p>
-                            <p>{product.price}</p>
-                            <p>{product.diet}</p>
+                            <ProductCard />
                         </li>
                     )
-                }
-                )}
-
+                })}
             </ul>
-        </div>
-    )
-}
+
+        );
+      }
+      
+
+
+      function ProductCard() {
+        return (
+            <Card style={{ width: '18rem' }}>
+                <Card.Body>
+                  <Card.Title>Card Title</Card.Title>
+                  <Card.Text>
+                    Some quick example text to build on the card title and make up the
+                    bulk of the card's content.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+        )
+    }
+    
