@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import "../../products.json";
-import Form from 'react-bootstrap/Form';
+import {Form} from 'react-bootstrap';
 
 /*Plan
 Filter for allergy 
@@ -16,8 +15,7 @@ product.price
 product.diet (show all that is checked)
 */
 
-export default function FilterMenu() {
-    const allergies = ["Vegetarian", "Vegan", "Gluten-Free", "Dairy-Free", "Nut-Free", "Soy-Free"];
+export default function FilterMenu({allergies}) {
     const [selectedAllergies, setSelectedAllergies] = useState([]);
     const [checked, setChecked] = useState(false);
 
@@ -28,53 +26,18 @@ export default function FilterMenu() {
         return (
             <div>
                 <Form>
-      {['checkbox'].map((type) => (
-        <div key={`inline-${type}`} className="mb-3">
-          <Form.Check
-            inline
-            label="1"
-            name="group1"
-            type={type}
-            id={`inline-${type}-1`}
-          />
-          <Form.Check
-            inline
-            label="2"
-            name="group1"
-            type={type}
-            id={`inline-${type}-2`}
-          />
-          <Form.Check
-            inline
-            label="3"
-            name="group1"
-            type={type}
-            id={`inline-${type}-3`}
-          />
-           <Form.Check
-            inline
-            label="4"
-            name="group1"
-            type={type}
-            id={`inline-${type}-4`}
-          />
-           <Form.Check
-            inline
-            label="5"
-            name="group1"
-            type={type}
-            id={`inline-${type}-5`}
-          />
-           <Form.Check
-            inline
-            label="6"
-            name="group1"
-            type={type}
-            id={`inline-${type}-6`}
-          />
-        </div>
-      ))}
-    </Form>
+                    {allergies.map((allergen, index) => (
+                        <div key={`inline-${allergen}`} className="mb-3">
+                        <Form.Check
+                            inline
+                            label={allergen}
+                            name="group1"
+                            type="checkbox"
+                            id={`inline-${allergen}-1`}
+                        />
+                        </div>
+                    ))}
+                </Form>
             </div>
         )
     }
